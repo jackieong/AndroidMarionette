@@ -6,11 +6,7 @@ Check it out now Check it out now :D
 
 Welcome to the Motor-Controlled Marionette Tutorial Page!
 
-This project was a partner collaboration between Thibaud Cochet and Jacqueline Ong and was created for Harvey Mudd College's [E190P: Embedded Systems] (http://www3.hmc.edu/~jspjut/class/e190p/) course taught by Professor [Josef Spjut] (http://jspjut.github.io/).
-
-To see a video demo of the final project, go here. 
-
-##### Table of Contents  
+### Table of Contents  
 [Introduction] (#introduction)   
 [Materials List](#materials)     
 [Overall Schematic](#overallschematic)    
@@ -18,55 +14,23 @@ To see a video demo of the final project, go here.
 [Arduino](#arduino)      
 [Android App](#android)        
 [Potential Roadblocks](#roadblocks)  
-[Links](#links)  
-[Images](#images)  
 [Code and Syntax Highlighting](#code)  
-[Tables](#tables)  
-[Blockquotes](#blockquotes)  
-[Inline HTML](#html)  
-[Horizontal Rule](#hr)  
-[Line Breaks](#lines)  
-[Youtube videos](#videos)  
 
 <a name="introduction"/>
 ## Introduction
 
-```no-highlight
-# H1
-## H2
-### H3
-#### H4
-##### H5
-###### H6
+This project was a partner collaboration between Thibaud Cochet and Jacqueline Ong and was created for Harvey Mudd College's [E190P: Embedded Systems] (http://www3.hmc.edu/~jspjut/class/e190p/) course taught by Professor [Josef Spjut] (http://jspjut.github.io/).
 
-Alternatively, for H1 and H2, an underline-ish style:
+To see a video demo of the final project, click the link below.             
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=Keeoy24ys9w
+" target="_blank"><img src="http://img.youtube.com/vi/Keeoy24ys9w/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
-Alt-H1
-======
-
-Alt-H2
-------
-```
-
-# H1
-## H2
-### H3
-#### H4
-##### H5
-###### H6
-
-Alternatively, for H1 and H2, an underline-ish style:
-
-Alt-H1
-======
-
-Alt-H2
-------
 
 <a name="materials"/>
-## Materials And Cost List
+## Billing of Materials
 
-If there is no cost listed, then it was free or provided free, courtesy of the HMC microprocessors lab and wood shop.
+If there is no cost listed, then it was free or was provided, courtesy of the HMC Microprocessors lab and wood shop.
 
 | Quantity        | Item           | Cost  |
 | :-------------: |:-------------:| :-----:|
@@ -75,339 +39,92 @@ If there is no cost listed, then it was free or provided free, courtesy of the H
 | 1 | Monkey Marionette         | $13 |
 | 3 | 12" x 36" Plywood Panels  |     |
 | 9 | Skinny Popsicle Sticks    |     |
-| 1 | Switch                    |     |
-| 1 | 1kOhm Resistor            |     |
-|   | Wire                      |     |
-|   | Electric Tape             |     |
-|   | Pull-Ties                 |     |
+|   | **Total Cost**            | **$138** |
 
-```no-highlight
-Emphasis, aka italics, with *asterisks* or _underscores_.
+Other items not listed, but we used were a switch, 1 kOhm resistor, wire, screws, electric tape, super glue, and pull-ties.
 
-Strong emphasis, aka bold, with **asterisks** or __underscores__.
+<a name="overallschematic"/>
+## Overall Schematic
 
-Combined emphasis with **asterisks and _underscores_**.
+Below is the overall schematic of the electronics of the servo motors.             
+![alt text](https://raw.github.com/jackieong/AndroidMarionette/master/schemq_bb.png)           
+For the BlueSMiRF, the pins (from left to right) are CTS, VCC, GND, TX, RX, RTS.
 
-Strikethrough uses two tildes. ~~Scratch this.~~
+Note: For this one-way Bluetooth connection (from Android to Arduino) to work, connect the BlueSMiRF's TX pin to the Arduino Uno's RX pin.
+
+<a name="housingsetup"/>
+## Servo Motor Setup and Housing
+When deciding the servo motor setup, we chose one, such that we could maximize the amount of motion the marionette could achieve. 
+We chose to have nine servo motors.
+Five control the vertical motion for hands (2), feet (2), and head (1)
+Four control the horizontal motion for hands (2) and feet (2) 
+
+![alt text](https://raw.github.com/jackieong/AndroidMarionette/master/marionettemotor.png) 
+
+The wooden housing was made from three donated sheets of wood to create the support for the servo motor setup.
+<a name="android"/>
+## Android
+
+### User Interface            
+For the user interface, we designed the app to have three screens. A main screen to choose between two sub-screens whether you wanted to...           
+1) control the marionette's individual limbs             
+2) choose from a selection of four preset moves the marionette could perform.          
+
+######  Screen 1
+
+### Creating the Android App            
+We used (Android Developer Tools Eclipse Platform)[http://developer.android.com/sdk/index.html?utm_source=weibolife] to code the Android App with the desirable interface and necessary buttons to command the servo motors.
+
+### Bluetooth Connection - Sending Data            
+
+
+#### Java and Activity Files - Code            
+
+
+##### Main Screen
+[ThibJackMario.java](https://github.com/jackieong/AndroidMarionette/blob/master/AndroidManifest.xml)         
+[activity_thib_jack_mario.xml](https://github.com/jackieong/AndroidMarionette/blob/master/)
+
+##### Manual Move Screen
+[Manualmove.java](https://github.com/jackieong/AndroidMarionette/blob/master/Manualmove.java)            
+[manualmove.xml](https://github.com/jackieong/AndroidMarionette/blob/master/manualmove.xml)  
+
+##### Preset Move Screen          
+[MakeSpeMove.java](https://github.com/jackieong/AndroidMarionette/blob/master/MakeSpeMove.java)            
+[makeSpemove.xml](https://github.com/jackieong/AndroidMarionette/blob/master/makeSpemove.xml)            
+
+##### Manifest File 
+[AndroidManifest.xml](https://github.com/jackieong/AndroidMarionette/blob/master/AndroidManifest.xml)      
+
+<a name="arduino"/>
+## Arduino
+
+### Calibrating Servo Motors
+
+Below is a diagram showing how the servo motors were oriented against the housing as well as the angle orientation of the servo motors with respect to the housing.       
+![alt text](https://raw.github.com/jackieong/AndroidMarionette/master/servoMotorOrientation.png)
+<a name="servosetup"/>
+
+### Bluetooth Setup - Receiving Data 
+To setup the Bluetooth, the following bit of starter code is helpful to setup Serial to start receiving data.
 ```
+void setup() 
+{...
+     Serial.begin(115200);
+}
 
-Emphasis, aka italics, with *asterisks* or _underscores_.
-
-Strong emphasis, aka bold, with **asterisks** or __underscores__.
-
-Combined emphasis with **asterisks and _underscores_**.
-
-Strikethrough uses two tildes. ~~Scratch this.~~
-
-
-<a name="lists"/>
-## Lists
-
-(In this example, leading and trailing spaces are shown with with dots: ⋅)
-
-```no-highlight
-1. First ordered list item
-2. Another item
-⋅⋅* Unordered sub-list. 
-1. Actual numbers don't matter, just that it's a number
-⋅⋅1. Ordered sub-list
-4. And another item.
-
-⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
-
-⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅
-⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅
-⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
-
-* Unordered list can use asterisks
-- Or minuses
-+ Or pluses
+void loop()
+{
+  if(Serial.available() >= 6) // for six characters we are sending from Android
+  {
+    for (byte i=0; i<=6; i++)
+    {
+      command[i] = Serial.read();
+    }
+  }
+}
 ```
+Check your baud rate matches that of your bluetooth modem to ensure that the Arduino was processing appropriately to register the data received from the bluetooth connection. Then, to setup the transfer the data, we set Serial as available and wait until all six have been transferred before we begin reading the values into our char array called command.
 
-1. First ordered list item
-2. Another item
-  * Unordered sub-list. 
-1. Actual numbers don't matter, just that it's a number
-  1. Ordered sub-list
-4. And another item.
-
-   You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
-
-   To have a line break without a paragraph, you will need to use two trailing spaces.  
-   Note that this line is separate, but within the same paragraph.  
-   (This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
-
-* Unordered list can use asterisks
-- Or minuses
-+ Or pluses
-
-<a name="links"/>
-## Links
-
-There are two ways to create links.
-
-```no-highlight
-[I'm an inline-style link](https://www.google.com)
-
-[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
-
-[I'm a reference-style link][Arbitrary case-insensitive reference text]
-
-[I'm a relative reference to a repository file](../blob/master/LICENSE)
-
-[You can use numbers for reference-style link definitions][1]
-
-Or leave it empty and use the [link text itself]
-
-Some text to show that the reference links can follow later.
-
-[arbitrary case-insensitive reference text]: https://www.mozilla.org
-[1]: http://slashdot.org
-[link text itself]: http://www.reddit.com
-```
-
-[I'm an inline-style link](https://www.google.com)
-
-[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
-
-[I'm a reference-style link][Arbitrary case-insensitive reference text]
-
-[I'm a relative reference to a repository file](../blob/master/LICENSE)
-
-[You can use numbers for reference-style link definitions][1]
-
-Or leave it empty and use the [link text itself]
-
-Some text to show that the reference links can follow later.
-
-[arbitrary case-insensitive reference text]: https://www.mozilla.org
-[1]: http://slashdot.org
-[link text itself]: http://www.reddit.com
-
-<a name="images"/>
-## Images
-
-```no-highlight
-Here's our logo (hover to see the title text):
-
-Inline-style: 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
-
-Reference-style: 
-![alt text][logo]
-
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
-```
-
-Here's our logo (hover to see the title text):
-
-Inline-style: 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
-
-Reference-style: 
-![alt text][logo]
-
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
-
-<a name="code"/>
-## Code and Syntax Highlighting
-
-Code blocks are part of the Markdown spec, but syntax highlighting isn't. However, many renderers -- like Github's and *Markdown Here* -- support syntax highlighting. *Markdown Here* supports highlighting for dozens of languages (and not-really-languages, like diffs and HTTP headers); to see the complete list, and how to write the language names, see the [highlight.js demo page](http://softwaremaniacs.org/media/soft/highlight/test.html).
-
-```no-highlight
-Inline `code` has `back-ticks around` it.
-```
-
-Inline `code` has `back-ticks around` it.
-
-Blocks of code are either fenced by lines with three back-ticks <code>```</code>, or are indented with four spaces. I recommend only using the fenced code blocks -- they're easier and only they support syntax highlighting.
-
-```no-highlight
- ```javascript
- var s = "JavaScript syntax highlighting";
- alert(s);
- ```
- 
- ```python
- s = "Python syntax highlighting"
- print s
- ```
- 
- ```
- No language indicated, so no syntax highlighting. 
- But let's throw in a <b>tag</b>.
- ```
-```
-
-```javascript
-var s = "JavaScript syntax highlighting";
-alert(s);
-```
-
-```python
-s = "Python syntax highlighting"
-print s
-```
-
-```
-No language indicated, so no syntax highlighting in Markdown Here (varies on Github). 
-But let's throw in a <b>tag</b>.
-```
-
-(Github Wiki pages don't seem to support syntax highlighting, so the above won't be colourful (the strings are not red, for example). Try it out in a *Markdown Here* email or a Github Markdown README or Github Issue -- you can preview a new Issue without submitting it.)
-
-Again, to see what languages are available for highlighting, and how to write those language names, see the [highlight.js demo page](http://softwaremaniacs.org/media/soft/highlight/test.html).
-
-<a name="tables"/>
-## Tables
-
-Tables aren't part of the core Markdown spec, but they are part of GFM and *Markdown Here* supports them. They are an easy way of adding tables to your email -- a task that would otherwise require copy-pasting from another application.
-
-```no-highlight
-Colons can be used to align columns.
-
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
-The outer pipes (|) are optional, and you don't need to make the raw Markdown line up prettily. You can also use inline Markdown.
-
-Markdown | Less | Pretty
---- | --- | ---
-*Still* | `renders` | **nicely**
-1 | 2 | 3
-```
-
-Colons can be used to align columns.
-
-| Tables        | Are           | Cool |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
-The outer pipes (|) are optional, and you don't need to make the raw Markdown line up prettily. You can also use inline Markdown.
-
-Markdown | Less | Pretty
---- | --- | ---
-*Still* | `renders` | **nicely**
-1 | 2 | 3
-
-<a name="blockquotes"/>
-## Blockquotes
-
-```no-highlight
-> Blockquotes are very handy in email to emulate reply text.
-> This line is part of the same quote.
-
-Quote break.
-
-> This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote. 
-```
-
-> Blockquotes are very handy in email to emulate reply text.
-> This line is part of the same quote.
-
-Quote break.
-
-> This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote. 
-
-<a name="html"/>
-## Inline HTML
-
-You can also use raw HTML in your Markdown, and it'll mostly work pretty well. 
-
-```no-highlight
-<dl>
-  <dt>Definition list</dt>
-  <dd>Is something people use sometimes.</dd>
-
-  <dt>Markdown in HTML</dt>
-  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
-</dl>
-```
-
-<dl>
-  <dt>Definition list</dt>
-  <dd>Is something people use sometimes.</dd>
-
-  <dt>Markdown in HTML</dt>
-  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
-</dl>
-
-<a name="hr"/>
-## Horizontal Rule
-
-```
-Three or more...
-
----
-
-Hyphens
-
-***
-
-Asterisks
-
-___
-
-Underscores
-```
-
-Three or more...
-
----
-
-Hyphens
-
-***
-
-Asterisks
-
-___
-
-Underscores
-
-<a name="lines"/>
-## Line Breaks
-
-My basic recommendation for learning how line breaks work is to experiment and discover -- hit &lt;Enter&gt; once (i.e., insert one newline), then hit it twice (i.e., insert two newlines), see what happens. You'll soon learn to get what you want. "Markdown Toggle" is your friend. 
-
-Here are some things to try out:
-
-```
-Here's a line for us to start with.
-
-This line is separated from the one above by two newlines, so it will be a *separate paragraph*.
-
-This line is also a separate paragraph, but...
-This line is only separated by a single newline, so it's a separate line in the *same paragraph*.
-```
-
-Here's a line for us to start with.
-
-This line is separated from the one above by two newlines, so it will be a *separate paragraph*.
-
-This line is also begins a separate paragraph, but...  
-This line is only separated by a single newline, so it's a separate line in the *same paragraph*.
-
-(Technical note: *Markdown Here* uses GFM line breaks, so there's no need to use MD's two-space line breaks.)
-
-<a name="videos"/>
-## Youtube videos
-
-They can't be added directly but you can add an image with a link to the video like this:
-
-```no-highlight
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
-" target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
-```
-
-Or, in pure Markdown, but losing the image sizing and border:
-
-```no-highlight
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
-```
+### Entire Arduino Code
+For further detail, check out the code [here](https://github.com/jackieong/AndroidMarionette/blob/master/MarionetteControl/MarionetteControl.ino).
