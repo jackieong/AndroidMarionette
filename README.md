@@ -68,7 +68,11 @@ The wooden housing was made from three donated sheets of wood to create the supp
 ## Android
 
 #### User Interface            
-For the user interface, we designed the app to have three screens. A main screen to choose between two sub-screens whether you wanted to...           
+For the user interface, we designed the app to have three screens as shown below.
+
+![alt text](https://github.com/jackieong/AndroidMarionette/blob/master/AndroidAppUserInterface.PNG)
+
+A main screen to choose between two sub-screens whether you wanted to...           
 1) control the marionette's individual limbs             
 2) choose from a selection of four preset moves the marionette could perform.          
 
