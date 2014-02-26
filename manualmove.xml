@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/mypictsubmenu"
+    android:layout_height="match_parent" >
+
+    <SeekBar
+        android:id="@+id/LegLeftX"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/LegLeftY"
+        android:layout_marginTop="14dp" />
+
+    <SeekBar
+        android:id="@+id/ArmRightX"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/ArmLeftX" />
+
+    <SeekBar
+        android:id="@+id/LegRightY"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/LegLeftY" />
+
+    <SeekBar
+        android:id="@+id/LegRightX"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/LegLeftX" />
+
+    <SeekBar
+        android:id="@+id/ArmLeftX"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ArmLeftY"
+        android:layout_marginTop="19dp" />
+
+    <SeekBar
+        android:id="@+id/ArmRightY"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/ArmLeftY" />
+
+    <SeekBar
+        android:id="@+id/LegLeftY"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ArmLeftX"
+        android:layout_marginTop="88dp" />
+
+    <SeekBar
+        android:id="@+id/ArmLeftY"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp" />
+
+    <SeekBar
+        android:id="@+id/Head"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Back"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/Back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Back to menu" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_toRightOf="@+id/Head"
+        android:text="Arm Right" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ArmRightY"
+        android:layout_marginRight="16dp"
+        android:layout_toLeftOf="@+id/Head"
+        android:text="Arm left" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_toRightOf="@+id/Head"
+        android:text="Leg Right" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/LegRightY"
+        android:layout_alignRight="@+id/textView1"
+        android:text="Leg Left" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Head"
+        android:layout_centerHorizontal="true"
+        android:text="Head" />
+
+</RelativeLayout>
