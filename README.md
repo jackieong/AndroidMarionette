@@ -86,8 +86,32 @@ To send data, we used the sendData() command and sent a char string, six charact
 The first three chars tell which servo motor (i.e.: which limb) to move.
 The last three chars tell that motor the angle the servo motor's arm will rotate.
 
+
+``````
+// Left Leg Horizontal Motion
+		LegLeftX.setOnSeekBarChangeListener(new OnSeekBarChangeListener()
+		{
+			int ProgressLegLeftX = 0;
+			public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser)
+			{
+				ProgressLegLeftX = progress;
+			}
+			public void onStartTrackingTouch(SeekBar seekBar)
+			{
+				//begin tracking clicking on seekBar
+			}
+			public void onStopTrackingTouch(SeekBar seekBar)
+			{
+				if(ProgressLegLeftX <= 9) sendData("LLX00"+ Integer.toString(ProgressLegLeftX)); 
+				else if(ProgressLegLeftX <= 99) sendData("LLX0"+ Integer.toString(ProgressLegLeftX));
+				else if(ProgressLegLeftX == 100)sendData("LLX"+ Integer.toString(ProgressLegLeftX));
+				Toast.makeText(manualmove.this, "Leg Left X "+ ProgressLegLeftX +"%", Toast.LENGTH_SHORT).show();
+			}
+``````
 For example: "ALX100"
 The "ALX" stands for ArmLeftX, so the servo motor controlling the left arm's horizontal motion will move by 100 degrees.
+
+For full Android Code, click [here](#code).
 
 <a name="arduino"/>
 ## Arduino
@@ -118,6 +142,7 @@ void loop()
 ```
 Check your baud rate matches that of your bluetooth modem to ensure that the Arduino was processing appropriately to register the data received from the bluetooth connection. Then, to setup the transfer the data, we set Serial as available and wait until all six have been transferred before we begin reading the values into our char array called command.
 
+For full Arduino Code, see next section, click Arduino code link below.
 
 ## Arduino and Android Code
 <a name="code"/>
