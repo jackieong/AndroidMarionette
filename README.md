@@ -81,35 +81,44 @@ There are four buttons corresponding to four preset moves that allow the user to
 #### Creating the Android App            
 We used [Android Developer Tools Eclipse Platform](http://developer.android.com/sdk/index.html?utm_source=weibolife) to code the Android App with the desirable interface and necessary buttons to command the servo motors.
 
+Below is the code used to control the left leg's horizontal motion via the Android app scroll bar control for the left leg horizontal motion.
+
+```
+// Left Leg Horizontal Motion
+	LegLeftX.setOnSeekBarChangeListener(new OnSeekBarChangeListener()
+	{
+		int ProgressLegLeftX = 0;
+		public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser)
+		{
+			ProgressLegLeftX = progress;
+		}
+		public void onStartTrackingTouch(SeekBar seekBar)
+		{
+			//begin tracking clicking on seekBar
+		}
+		public void onStopTrackingTouch(SeekBar seekBar)
+		{
+			if(ProgressLegLeftX <= 9) sendData("LLX00"+ Integer.toString(ProgressLegLeftX)); 
+			else if(ProgressLegLeftX <= 99) sendData("LLX0"+ Integer.toString(ProgressLegLeftX));
+			else if(ProgressLegLeftX == 100)sendData("LLX"+ Integer.toString(ProgressLegLeftX));
+			Toast.makeText(manualmove.this, "Leg Left X "+ ProgressLegLeftX +"%", Toast.LENGTH_SHORT).show();
+		}
+```
+
 #### Bluetooth Connection - Sending Data            
 To send data, we used the sendData() command and sent a char string, six characters long.
 The first three chars tell which servo motor (i.e.: which limb) to move.
 The last three chars tell that motor the angle the servo motor's arm will rotate.
 
 
-``````
-// Left Leg Horizontal Motion
-		LegLeftX.setOnSeekBarChangeListener(new OnSeekBarChangeListener()
-		{
-			int ProgressLegLeftX = 0;
-			public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser)
-			{
-				ProgressLegLeftX = progress;
-			}
-			public void onStartTrackingTouch(SeekBar seekBar)
-			{
-				//begin tracking clicking on seekBar
-			}
-			public void onStopTrackingTouch(SeekBar seekBar)
-			{
-				if(ProgressLegLeftX <= 9) sendData("LLX00"+ Integer.toString(ProgressLegLeftX)); 
-				else if(ProgressLegLeftX <= 99) sendData("LLX0"+ Integer.toString(ProgressLegLeftX));
-				else if(ProgressLegLeftX == 100)sendData("LLX"+ Integer.toString(ProgressLegLeftX));
-				Toast.makeText(manualmove.this, "Leg Left X "+ ProgressLegLeftX +"%", Toast.LENGTH_SHORT).show();
-			}
-``````
 For example: "ALX100"
-The "ALX" stands for ArmLeftX, so the servo motor controlling the left arm's horizontal motion will move by 100 degrees.
+The "ALX" stands for ArmLeftX, so the servo motor controlling the left arm's horizontal motion will move by 100 degrees.           
+
+Note: Your manifest file should have the following code to grant the necessary "permissions" for Bluetooth to work.  
+```
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+```
 
 For full Android Code, click [here](#code).
 
@@ -140,9 +149,10 @@ void loop()
   }
 }
 ```
+
 Check your baud rate matches that of your bluetooth modem to ensure that the Arduino was processing appropriately to register the data received from the bluetooth connection. Then, to setup the transfer the data, we set Serial as available and wait until all six have been transferred before we begin reading the values into our char array called command.
 
-For full Arduino Code, see next section, click Arduino code link below.
+For full Arduino Code, see the next section (Code).
 
 ## Arduino and Android Code
 <a name="code"/>
