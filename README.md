@@ -131,7 +131,7 @@ Check your baud rate matches that of your bluetooth modem to ensure that the Ard
 [activity_thib_jack_mario.xml](https://github.com/jackieong/AndroidMarionette/blob/master/)
 
 ###### Manual Move Screen
-[Manual Move Java File](https://github.com/jackieong/AndroidMarionette/blob/master/Manualmove.java)            
+[Manual Move Java File](https://github.com/jackieong/AndroidMarionette/blob/master/manualmove.java)            
 [Manual Move Activity File](https://github.com/jackieong/AndroidMarionette/blob/master/manualmove.xml)  
 
 ###### Preset Move Screen          
