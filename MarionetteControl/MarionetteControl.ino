@@ -313,13 +313,13 @@ void moveLeftLeg(int x, int y, int time)
 int getAngle(char command[100])
 {
   int value = 0;
-  switch (command[3])
+  switch (command[3]) // the hundreds digit
     {
-      case '0': switch (command[4])
+      case '0': switch (command[4]) // the tens digit
                 {
-                    case '0' : switch (command[5])
+                    case '0' : switch (command[5]) // the ones digit
                                {
-                                   case '0' : value = 0; break;
+                                   case '0' : value = 0; break; // 000
                                    case '1' : value = 1; break;
                                    case '2' : value = 2; break;
                                    case '3' : value = 3; break;
@@ -328,22 +328,21 @@ int getAngle(char command[100])
                                    case '6' : value = 6; break;
                                    case '7' : value = 7; break;
                                    case '8' : value = 8; break;
-                                   case '9' : value = 9; break;
+                                   case '9' : value = 9; break; // 009
                                    default : break;                                  
                                } break; 
                     case '1' : switch (command[5])
                                {
-                                   case '0' : value = 10; break;
+                                   case '0' : value = 10; break; // 010
                                    case '1' : value = 11; break;
                                    case '2' : value = 12; break;
                                    case '3' : value = 13; break;
                                    case '4' : value = 14; break;
                                    case '5' : value = 15; break;
-
                                    case '6' : value = 16; break;
                                    case '7' : value = 17; break;
                                    case '8' : value = 18; break;
-                                   case '9' : value = 19; break;
+                                   case '9' : value = 19; break; // 019
                                    default : break;                                  
                                } break; 
                     case '2' : switch (command[5])
@@ -455,17 +454,13 @@ int getAngle(char command[100])
                                    case '6' : value = 96; break;
                                    case '7' : value = 97; break;
                                    case '8' : value = 98; break;
-                                   case '9' : value = 99; break;
+                                   case '9' : value = 99; break; // 099
                                    default : break;                                  
                                } break;                                
                     default : break;
                 } break; 
-         case '1' :  value = 100; break;
-        default : break;
-         //x²default : value = 10; break;
-    // value = value/100 * 180;
-   
-     
+         case '1' :  value = 100; break; // 100
+        default : break;   
      }
      return value;
 }
