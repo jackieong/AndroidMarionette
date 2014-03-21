@@ -220,7 +220,7 @@ public class manualmove extends Activity
 			}
 						
 		});
-
+		// Right Leg Vertical Motion
 		LegRightY.setOnSeekBarChangeListener(new OnSeekBarChangeListener()
 		{
 			int ProgressLegRightY = 0;
@@ -241,7 +241,7 @@ public class manualmove extends Activity
 			}
 						
 		});
-
+		// Right Leg Horizontal Motion
 		LegRightX.setOnSeekBarChangeListener(new OnSeekBarChangeListener()
 		{
 			int ProgressLegRightX = 0;
@@ -262,7 +262,7 @@ public class manualmove extends Activity
 			}
 						
 		});
-
+		// Head (Vertical) Motion
 		Head.setOnSeekBarChangeListener(new OnSeekBarChangeListener()
 		{
 			int ProgressHead = 0;
@@ -305,13 +305,11 @@ public class manualmove extends Activity
 	  
 	    Log.d(TAG, "...onResume - try connect...");
 	    
-	    // Set up a pointer to the remote node using it's address.
+	    // Setting up a pointer to the remote node using it's address.
 	    BluetoothDevice device = btAdapter.getRemoteDevice(address);
 	    
-	    // Two things are needed to make a connection:
-	    //   A MAC address, which we got above.
-	    //   A Service ID or UUID.  In this case we are using the
-	    //     UUID for SPP.
+	    // To make a connection, we have:
+	    //   a MAC address (found above) and a UUID for SPP
 	    
 	    try {
 	        btSocket = createBluetoothSocket(device);
@@ -319,11 +317,11 @@ public class manualmove extends Activity
 	        errorExit("Fatal Error", "In onResume() and socket create failed: " + e1.getMessage() + ".");
 	    }
 	        
-	    // Discovery is resource intensive.  Make sure it isn't going on
-	    // when you attempt to connect and pass your message.
+	    // Discovery is resource intensive.  
+	    // Cancel discovery when attempting to connect and pass your message
 	    btAdapter.cancelDiscovery();
 	    
-	    // Establish the connection.  This will block until it connects.
+	    // Establish the connection
 	    Log.d(TAG, "...Connecting...");
 	    try {
 	      btSocket.connect();
@@ -336,7 +334,7 @@ public class manualmove extends Activity
 	      }
 	    }
 	      
-	    // Create a data stream so we can talk to server.
+	    // Create a data stream so we can talk to server
 	    Log.d(TAG, "...Create Socket...");
 	  
 	    try {
