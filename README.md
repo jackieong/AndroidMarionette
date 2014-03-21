@@ -171,7 +171,7 @@ Check your baud rate matches that of your bluetooth modem to ensure that the Ard
 
 For full Arduino Code, see the next section.
 
-## Concluding Thought
+## Concluding Thoughts
 <a name="conclusion"/>
 
 We did achieve our goal to create a "remote-controlled" marionette using a bluetooth android app. Despite the simple setup, we were still able to mobilize our marionette to yield the expected motions.
