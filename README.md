@@ -1,9 +1,6 @@
 AndroidMarionette
 =================
 
-
-Check it out now Check it out now :D
-
 Welcome to the Android-Controlled Marionette Project Page!
 
 ### Table of Contents  
@@ -18,7 +15,7 @@ Welcome to the Android-Controlled Marionette Project Page!
 <a name="introduction"/>
 ## Introduction
 
-This project was a partner collaboration between Thibaud Cochet and Jacqueline Ong and was created for Harvey Mudd College's [E190P: Embedded Systems] (http://www3.hmc.edu/~jspjut/class/e190p/) course taught by Professor [Josef Spjut] (http://jspjut.github.io/).
+This project was a partner collaboration between Thibaud Cochet and Jacqueline Ong and was created for Harvey Mudd College's [E190P: Embedded Systems] (http://www3.hmc.edu/~jspjut/class/e190p/) course taught by [Professor Josef Spjut] (http://jspjut.github.io/).
 
 To see a video demo of the final project, click the link below.             
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=Keeoy24ys9w
@@ -31,18 +28,25 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 If there is no cost listed, then it was free or was provided, courtesy of the HMC Microprocessors lab and wood shop.
 
-| Quantity        | Item           | Cost  |
-| :-------------: |:-------------:| :-----:|
-| 9 | Hitec HS-422 Servo Motors | $90 |
-| 1 | Arduino Uno               | $35 |
-| 1 | Monkey Marionette         | $13 |
-| 3 | 12" x 36" Plywood Panels  |     |
-| 9 | Skinny Popsicle Sticks    |     |
-|   | **Total Cost**            | **$138** |
+| Quantity        | Item           |  Supplier  | Cost  |
+| :-------------: |:-------------: | :---------:| :----:|
+| 9 | Hitec HS-422 Servo Motors | Adafruit  | $90 |
+| 1 | Arduino Uno               | Amazon    | $35 |
+| 1 | Monkey Marionette         | Amazon    | $13 |
+| 3 | 12" x 36" Plywood Panels  | Amazon    |     |
+| 9 | Skinny Popsicle Sticks    | Amazon    |     |
+|   | **Total Cost**            |           | **$138** |
 
-Other items not listed, but we used were a switch, 1 kOhm resistor, wire, screws, electric tape, super glue, and pull-ties.
+Other items not listed, but we used were the
+* Switch 
+* 1 kOhm resistor
+* Wire
+* Screws
+* Electric tape
+* Super glue
+* Pull-ties
 
-Because of the steep cost in motors, we were able to secure partial funding from HMC's Fabrication Studio to offset the hardware cost.                  
+Because of the steep cost in motors, we were able to secure partial funding from HMC's Fabrication Studio to offset the hardware cost. However, we would recommend ordering cheaper servos that can achieve the objective, such as the TowerPro servo motors that cost $5 each as opposed to $10 for each Hitec servo motor.                
 
 <a name="overallschematic"/>
 ## Overall Schematic
@@ -51,7 +55,7 @@ Below is the overall schematic of the electronics of the servo motors.
 ![alt text](https://raw.github.com/jackieong/AndroidMarionette/master/schemq_bb.png)           
 For the BlueSMiRF, the pins (from left to right) are CTS, VCC, GND, TX, RX, RTS.
 
-You have the option to have it battery-powered or PC-powered via USB. Because we were coding, we decided to power by PC.              
+You have the option to have it battery-powered or PC-powered via USB. Because we were coding, we decided to power by PC.
 
 Note: For this one-way Bluetooth connection (from Android to Arduino) to work, connect the BlueSMiRF's TX pin to the Arduino Uno's RX pin.
 
@@ -70,7 +74,7 @@ The wooden housing was made from three donated sheets of wood to create the supp
 #### User Interface            
 For the user interface, we designed the app to have three screens as shown below.
 
-![alt text](https://github.com/jackieong/AndroidMarionette/blob/master/AndroidAppUserInterface.PNG)
+![alt text](https://raw.githubusercontent.com/jackieong/AndroidMarionette/master/AndroidAppUserInterface.PNG)
 
 A main screen to choose between two sub-screens whether you wanted to...           
 1) control the marionette's individual limbs             
