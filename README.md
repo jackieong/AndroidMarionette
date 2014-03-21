@@ -5,11 +5,12 @@ Welcome to the Android-Controlled Marionette Project Page!
 
 ### Table of Contents  
 [Introduction] (#introduction)   
-[Materials List](#materials)     
+[Materials](#materials)     
 [Overall Schematic](#overallschematic)    
-[Housing and Servo Motor Setup](#housingsetup)      
+[Servo Motor Setup and Housing](#housingsetup)      
+[Android](#android)  
 [Arduino](#arduino)      
-[Android App](#android)        
+[Concluding Thoughts](#conclusion)
 [Links to Arduino and Android Code](#code)  
 
 <a name="introduction"/>
@@ -17,14 +18,16 @@ Welcome to the Android-Controlled Marionette Project Page!
 
 This project was a partner collaboration between Thibaud Cochet and Jacqueline Ong and was created for Harvey Mudd College's [E190P: Embedded Systems] (http://www3.hmc.edu/~jspjut/class/e190p/) course taught by [Professor Josef Spjut] (http://jspjut.github.io/).
 
-To see a video demo of the final project, click the link below.             
+The goal of this project was to build, assemble, and program a marionette to be remote-controlled via an Android App.  A marionette is essentially a puppet that is controlled by a horizontal control bar connected to the puppet via strings.  The Android App user could either move the marionette's limbs individually or the human user could toggle a screen and choose four preset moves.
+
+To see a video demo of some of the sample moves of our final project, click the link below.             
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=Keeoy24ys9w
 " target="_blank"><img src="http://img.youtube.com/vi/Keeoy24ys9w/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 
 <a name="materials"/>
-## Billing of Materials
+## Materials
 
 If there is no cost listed, then it was free or was provided, courtesy of the HMC Microprocessors lab and wood shop.
 
@@ -66,7 +69,7 @@ We chose to have nine servo motors.
 Five control the vertical motion for hands (2), feet (2), and head (1)              
 Four control the horizontal motion for hands (2) and feet (2)              
 ![alt text](https://raw.github.com/jackieong/AndroidMarionette/master/marionettemotor.png)           
-The wooden housing was made from three donated sheets of wood to create the support for the servo motor setup.
+The wooden housing was made from three donated sheets of wood drilled together in the wood shop to create the mount and support for the servo motor setup.
 
 <a name="android"/>
 ## Android
@@ -133,10 +136,14 @@ For full Android Code, click [here](#code).
 <a name="arduino"/>
 ## Arduino
 
+#### Creating the Servo Motor Code            
+We used the standard [Arduino IDE](http://developer.android.com/sdk/index.html?utm_source=weibolife) to code the servo motors to mobilize the marionette.
+
 #### Calibrating Servo Motors
 
 Below is a diagram showing how the servo motors were oriented against the housing as well as the angle orientation of the servo motors with respect to the housing.       
 ![alt text](https://raw.github.com/jackieong/AndroidMarionette/master/servoMotorOrientation.png)
+
 
 #### Bluetooth Setup - Receiving Data 
 To setup the Bluetooth, the following bit of starter code is helpful to setup Serial to start receiving data.
@@ -160,7 +167,17 @@ void loop()
 
 Check your baud rate matches that of your bluetooth modem to ensure that the Arduino was processing appropriately to register the data received from the bluetooth connection. Then, to setup the transfer the data, we set Serial as available and wait until all six have been transferred before we begin reading the values into our char array called command.
 
-For full Arduino Code, see the next section (Code).
+For full Arduino Code, see the next section.
+
+## Concluding Thought
+<a name="conclusion"/>
+
+We did achieve our goal to create a "remote-controlled" marionette using a bluetooth android app. Despite the simple setup, we were still able to mobilize our marionette to yield the expected motions.
+
+If given more time, we would 
+* program additional more sophisticated moves
+* determine method to minimize excessive movements caused by the marionette horizontal motions
+* create an enclosure for all the servo motors and wiring on the top of the housing for aesthetics 
 
 ## Arduino and Android Code
 <a name="code"/>
