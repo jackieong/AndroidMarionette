@@ -83,12 +83,14 @@ A main screen to choose between two sub-screens whether you wanted to...
 1) control the marionette's individual limbs             
 2) choose from a selection of four preset moves the marionette could perform.          
 
-######  Sub-Screen 1
-There are eight "seekbars" that lets the user scroll the seekbar to a desired angle (i.e.: extent) and ultimately customize the marionette's moves. Once the user lets go of the scroll bar the marionette will hold that position until the user chooses to reset the marionette's position to an upright position.
 
-######  Sub-Screen 2
+######  Sub-Screen 1: Dance Move Screen
 There are four buttons corresponding to four preset moves that allow the user to see a few fun moves the marionette can do. 
- 
+
+######  Sub-Screen 2: Manual Move Screen
+There are eight "seekbars" that lets the user scroll the seekbar to a desired angle (i.e.: extent) and ultimately customize the marionette's moves. Once the user lets go of the scroll bar the marionette will hold that position until the user chooses to reset the marionette's position to an upright position. 
+Although the "right" and "left" labels are referencing the actual marionette's limbs, the seekbars are located on the screen in the general location where the human user views that corresponding limb. 
+
 #### Creating the Android App            
 We used [Android Developer Tools Eclipse Platform](http://developer.android.com/sdk/index.html?utm_source=weibolife) to code the Android App with the desirable interface and necessary buttons to command the servo motors.
 
