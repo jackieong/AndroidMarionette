@@ -1,7 +1,7 @@
-AndroidMarionette
+Android  Marionette
 =================
 
-Welcome to the Android-Controlled Marionette Project Page!
+Welcome to the Android Marionette Project Page!
 
 ### Table of Contents  
 [Introduction] (#introduction)   
@@ -18,7 +18,7 @@ Welcome to the Android-Controlled Marionette Project Page!
 
 This project was a partner collaboration between Thibaud Cochet and Jacqueline Ong and was created for Harvey Mudd College's [E190P: Embedded Systems] (http://www3.hmc.edu/~jspjut/class/e190p/) course taught by [Professor Josef Spjut] (http://jspjut.github.io/).
 
-The goal of this project was to build, assemble, and program a marionette to be remote-controlled via an Android App.  A marionette is essentially a puppet that is controlled by a horizontal control bar connected to the puppet via strings.  The Android App user could either move the marionette's limbs individually or the human user could toggle a screen and choose four preset moves.
+The goal of this project was to build, assemble, and program a marionette to be remote-controlled via an Android App.  A marionette is essentially a puppet that is controlled by a horizontal control bar connected to the puppet via strings.  To mobilize the marionette, servo motors, attached to an Arduino Uno, will receive angle-motion commands from an Android app via bluetooth. The Android app user can then either move the marionette's limbs individually or the human user could toggle a screen and choose four preset moves by controlling the limb's correspondng servo motors.
 
 To see a video demo of some of the sample moves of our final project, click the link below.             
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=Keeoy24ys9w
